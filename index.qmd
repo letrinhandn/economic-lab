@@ -1,5 +1,4 @@
 ---
-title: "Essays"
 listing:
   contents:
     - posts/*/index.qmd
@@ -16,9 +15,3 @@ listing:
     reading-time: "Read"
 page-layout: full
 ---
-
-Growth, macro, and economic theory.
-
-[Digital garden](https://letrinhan-site.vercel.app/)  
-[Quant Theory Lab](https://letrinhandn.github.io/quant-theory-lab/)  
-[Investment Research Lab](https://letrinhandn.github.io/investment-research-lab/)
