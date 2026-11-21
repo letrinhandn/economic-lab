@@ -2383,6 +2383,9 @@ h_i=a_{r(i)}+b_{r(i)}\ln y_{i,0}+\boldsymbol\gamma_{r(i)}^{\mathsf T}\mathbf X_i
 document.addEventListener("DOMContentLoaded", function () {
   var brand = document.querySelector(".navbar-brand");
   if (brand) brand.setAttribute("href", "https://letrinhandn.github.io/letrinhan-site/");
+  document.querySelectorAll(".quarto-listing-category-title").forEach(function (el) {
+    el.textContent = "Tags";
+  });
 });
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
