@@ -2,9 +2,9 @@
 title: "About"
 ---
 
-Economic Lab is Le Tri Nhan's Quarto vault for economic theory.
+Economic Lab is a Quarto notebook vault by Le Tri Nhan.
 
-Same garden palette as the [personal site](https://letrinhan-site.vercel.app/).
+Root hub: [personal site](https://letrinhan-site.vercel.app/).
 
 - [Quant Theory Lab](https://letrinhandn.github.io/quant-theory-lab/)
 - [Investment Research Lab](https://letrinhandn.github.io/investment-research-lab/)
