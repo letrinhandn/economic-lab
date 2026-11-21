@@ -2,8 +2,10 @@
 title: "About"
 ---
 
-**Economic Lab** is Le Tri Nhan's knowledge vault for economic theory.
+**Economic Lab** is Le Tri Nhan's Quarto vault for economic theory.
 
-Posts publish as Quarto essays. Notebooks, papers, and models live in the same repository.
+Design tokens match the personal site: burgundy `#6b0f1a`, paper `#f2e8e4`, gold `#c4a35a`, pixel brand type, Be Vietnam Pro body.
 
-Related: [Quant Theory Lab](https://github.com/letrinhandn/quant-theory-lab), [Investment Research Lab](https://github.com/letrinhandn/investment-research-lab).
+- Personal site: [letrinhan-site.vercel.app](https://letrinhan-site.vercel.app/)
+- X: [@comrade_lenhan](https://x.com/comrade_lenhan)
+- Related: [Quant Theory Lab](https://github.com/letrinhandn/quant-theory-lab), [Investment Research Lab](https://github.com/letrinhandn/investment-research-lab)

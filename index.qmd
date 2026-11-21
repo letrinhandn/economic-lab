@@ -1,5 +1,6 @@
 ---
 title: "Economic Lab"
+subtitle: "Essays on growth, macro, and economic theory"
 listing:
   contents:
     - posts/*/index.qmd
@@ -12,4 +13,4 @@ listing:
 page-layout: full
 ---
 
-Essays on growth, macro, and economic theory. Written in Quarto from this vault.
+Same visual language as [letrinhan-site](https://letrinhan-site.vercel.app/): burgundy, paper, gold. Long essays render on a paper sheet for reading comfort.

@@ -12,32 +12,43 @@ website:
   site-url: https://letrinhandn.github.io/economic-lab
   repo-url: https://github.com/letrinhandn/economic-lab
   repo-actions: [source, issue]
+  favicon: styles/favicon.svg
   navbar:
+    background: primary
+    foreground: light
     left:
       - href: index.qmd
         text: Essays
       - href: about.qmd
         text: About
+      - text: Personal site
+        href: https://letrinhan-site.vercel.app/
     right:
       - icon: github
         href: https://github.com/letrinhandn/economic-lab
+      - icon: twitter
+        href: https://x.com/comrade_lenhan
   page-footer:
-    left: "Le Tri Nhan"
-    right: "Research and education only. Not investment advice."
+    left: "Le Tri Nhan · Economic Lab"
+    center: "[Personal site](https://letrinhan-site.vercel.app/) · [GitHub](https://github.com/letrinhandn)"
+    right: "Research only. Not investment advice."
   search: true
   draft-mode: gone
 
 format:
   html:
     theme:
-      - cosmo
+      - darkly
       - styles/quarto.scss
     toc: true
     toc-depth: 3
+    toc-location: right
     code-copy: true
     code-overflow: wrap
     html-math-method: mathjax
     link-external-newwindow: true
+    mainfont: "Be Vietnam Pro"
+    respect-user-color-scheme: false
 
 execute:
   freeze: auto
