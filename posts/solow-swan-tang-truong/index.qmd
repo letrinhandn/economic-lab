@@ -1,6 +1,6 @@
 ---
-title: "Mô hình tăng trưởng Solow–Swan: Từ Harrod–Domar đến hội tụ kinh tế"
-description: "Từ Đại suy thoái và Harrod–Domar đến Solow–Swan, trạng thái dừng, hội tụ và quy tắc vàng."
+title: "Mô hình tăng trưởng Solow-Swan: Từ Harrod-Domar đến hội tụ kinh tế"
+description: "Từ Đại suy thoái và Harrod-Domar đến Solow-Swan, trạng thái dừng, hội tụ và quy tắc vàng."
 author: "Le Tri Nhan"
 date: 2026-11-21
 categories: [growth, macro, solow]
