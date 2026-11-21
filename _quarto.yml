@@ -8,7 +8,7 @@ project:
 
 website:
   title: "Economic Lab"
-  description: "Essays on economic theory by Le Tri Nhan"
+  description: "Personal essays, projects, and works in economics by Le Tri Nhan"
   site-url: https://letrinhandn.github.io/economic-lab
   repo-url: https://github.com/letrinhandn/economic-lab
   favicon: styles/favicon.svg
