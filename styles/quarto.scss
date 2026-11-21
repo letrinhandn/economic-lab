@@ -281,3 +281,24 @@ main.content em:has(+ ),
   background: $gold;
   color: $ink;
 }
+
+
+/* Force garden chrome (override Bootstrap light leftovers) */
+body.quarto-light,
+body.quarto-dark,
+body {
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 0%, #8b1a2b 0%, transparent 58%),
+    linear-gradient(180deg, #6b0f1a 0%, #3d080f 55%, #140406 100%) !important;
+  background-attachment: fixed !important;
+  color: #f2e8e4 !important;
+}
+
+#quarto-content,
+.page-columns .page-columns {
+  background: transparent !important;
+}
+
+.navbar {
+  background: #6b0f1a !important;
+}

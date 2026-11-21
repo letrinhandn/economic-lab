@@ -17,12 +17,20 @@ website:
     background: primary
     foreground: light
     left:
+      - text: Garden
+        menu:
+          - text: Personal site
+            href: https://letrinhan-site.vercel.app/
+          - text: Economic Lab
+            href: https://letrinhandn.github.io/economic-lab/
+          - text: Quant Theory Lab
+            href: https://letrinhandn.github.io/quant-theory-lab/
+          - text: Investment Research Lab
+            href: https://github.com/letrinhandn/investment-research-lab
       - href: index.qmd
         text: Essays
       - href: about.qmd
         text: About
-      - text: Personal site
-        href: https://letrinhan-site.vercel.app/
     right:
       - icon: github
         href: https://github.com/letrinhandn/economic-lab
@@ -30,7 +38,7 @@ website:
         href: https://x.com/comrade_lenhan
   page-footer:
     left: "Le Tri Nhan · Economic Lab"
-    center: "[Personal site](https://letrinhan-site.vercel.app/) · [GitHub](https://github.com/letrinhandn)"
+    center: "[Personal site](https://letrinhan-site.vercel.app/) · [QTL](https://letrinhandn.github.io/quant-theory-lab/) · [IRL](https://github.com/letrinhandn/investment-research-lab)"
     right: "Research only. Not investment advice."
   search: true
   draft-mode: gone

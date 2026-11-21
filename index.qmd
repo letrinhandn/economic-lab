@@ -13,4 +13,4 @@ listing:
 page-layout: full
 ---
 
-Same visual language as [letrinhan-site](https://letrinhan-site.vercel.app/): burgundy, paper, gold. Long essays render on a paper sheet for reading comfort.
+Part of the [digital garden](https://letrinhan-site.vercel.app/) with Quant Theory Lab and Investment Research Lab.
