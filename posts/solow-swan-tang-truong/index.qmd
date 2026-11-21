@@ -6,7 +6,7 @@ date: 2026-11-21
 categories: [growth, macro, solow]
 lang: vi
 draft: false
-image: "figures/hinh-2-1-leontief-cobb-douglas.png"
+image: "figures/thumbnail.jpg"
 format:
   html:
     toc: true

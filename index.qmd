@@ -4,13 +4,19 @@ subtitle: "Essays on growth, macro, and economic theory"
 listing:
   contents:
     - posts/*/index.qmd
-  type: default
+  type: grid
   sort: "date desc"
   categories: true
-  sort-ui: true
+  sort-ui: false
   filter-ui: true
-  fields: [date, title, reading-time, categories, description]
+  grid-columns: 1
+  grid-item-border: false
+  grid-item-align: left
+  image-height: 220px
+  fields: [image, title, description, date, reading-time, categories]
+  field-display-names:
+    reading-time: "Read"
 page-layout: full
 ---
 
-Part of the [digital garden](https://letrinhan-site.vercel.app/) with Quant Theory Lab and Investment Research Lab.
+Part of the [digital garden](https://letrinhan-site.vercel.app/) · [Quant Theory Lab](https://letrinhandn.github.io/quant-theory-lab/) · [Investment Research Lab](https://github.com/letrinhandn/investment-research-lab)
