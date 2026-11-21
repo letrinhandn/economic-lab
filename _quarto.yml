@@ -1,0 +1,43 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - about.qmd
+    - posts/**/index.qmd
+
+website:
+  title: "Economic Lab"
+  description: "Essays on economic theory by Le Tri Nhan"
+  site-url: https://letrinhandn.github.io/economic-lab
+  repo-url: https://github.com/letrinhandn/economic-lab
+  repo-actions: [source, issue]
+  navbar:
+    left:
+      - href: index.qmd
+        text: Essays
+      - href: about.qmd
+        text: About
+    right:
+      - icon: github
+        href: https://github.com/letrinhandn/economic-lab
+  page-footer:
+    left: "Le Tri Nhan"
+    right: "Research and education only. Not investment advice."
+  search: true
+  draft-mode: gone
+
+format:
+  html:
+    theme:
+      - cosmo
+      - styles/quarto.scss
+    toc: true
+    toc-depth: 3
+    code-copy: true
+    code-overflow: wrap
+    html-math-method: mathjax
+    link-external-newwindow: true
+
+execute:
+  freeze: auto

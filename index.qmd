@@ -1,0 +1,15 @@
+---
+title: "Economic Lab"
+listing:
+  contents:
+    - posts/*/index.qmd
+  type: default
+  sort: "date desc"
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [date, title, reading-time, categories, description]
+page-layout: full
+---
+
+Essays on growth, macro, and economic theory. Written in Quarto from this vault.

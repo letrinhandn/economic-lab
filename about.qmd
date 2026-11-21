@@ -1,0 +1,9 @@
+---
+title: "About"
+---
+
+**Economic Lab** is Le Tri Nhan's knowledge vault for economic theory.
+
+Posts publish as Quarto essays. Notebooks, papers, and models live in the same repository.
+
+Related: [Quant Theory Lab](https://github.com/letrinhandn/quant-theory-lab), [Investment Research Lab](https://github.com/letrinhandn/investment-research-lab).
