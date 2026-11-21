@@ -1,6 +1,5 @@
 ---
-title: "Economic Lab"
-subtitle: "Essays on growth, macro, and economic theory"
+title: "Essays"
 listing:
   contents:
     - posts/*/index.qmd
@@ -11,7 +10,6 @@ listing:
   filter-ui: true
   grid-columns: 1
   grid-item-border: false
-  grid-item-align: left
   image-height: 220px
   fields: [image, title, description, date, reading-time, categories]
   field-display-names:
@@ -19,4 +17,8 @@ listing:
 page-layout: full
 ---
 
-Part of the [digital garden](https://letrinhan-site.vercel.app/) · [Quant Theory Lab](https://letrinhandn.github.io/quant-theory-lab/) · [Investment Research Lab](https://github.com/letrinhandn/investment-research-lab)
+Growth, macro, and economic theory.
+
+[Digital garden](https://letrinhan-site.vercel.app/)  
+[Quant Theory Lab](https://letrinhandn.github.io/quant-theory-lab/)  
+[Investment Research Lab](https://letrinhandn.github.io/investment-research-lab/)
