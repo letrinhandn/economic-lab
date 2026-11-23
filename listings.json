@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/hello-quarto/index.html",
       "/posts/solow-swan-tang-truong/index.html"
     ]
   }

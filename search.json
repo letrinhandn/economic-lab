@@ -196,17 +196,24 @@
     "text": "Nguồn dữ liệu được giới thiệu trong nghiên cứu\nGroningen Growth and Development Centre. (2025). Penn World Table (Version 11.0) [Data set]. University of Groningen. https://doi.org/10.34894/FABVLR\nWorld Bank. (n.d.). World Development Indicators [Data set]. World Bank Data Catalog. https://datacatalog.worldbank.org/search/dataset/0037712/world-development-indicators"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Economic Lab",
-    "section": "",
-    "text": "Những ghi chép về mô hình tăng trưởng Solow-Swan\n\n236 min\n\n\ngrowth\n\nmacro\n\nsolow\n\n\n\nNhững ghi chép từ Đại suy thoái và Harrod-Domar đến trạng thái dừng, hội tụ và quy tắc vàng.\n\n\n\nNov 21, 2026\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Economic Lab collects personal essays, projects, and works in economics by Le Tri Nhan.\nRoot hub: personal site.\n\nTech Lab\nPolicy Lab\nFinance\nX: @comrade_lenhan"
+    "text": "Economic Lab collects personal essays, projects, and works in economics by Le Tri Nhan — including investment research and quantitative theory formerly kept in Finance / Investment Research Lab.\nRoot hub: personal site.\n\nTech Lab\nPolicy Lab\nPhilosophy Lab"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Economic Lab",
+    "section": "",
+    "text": "Hello Quarto\n\n1 min\n\n\nmeta\n\n\n\nFirst essay scaffold on the Investment Research Lab Quarto site.\n\n\n\nNov 21, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nNhững ghi chép về mô hình tăng trưởng Solow-Swan\n\n236 min\n\n\ngrowth\n\nmacro\n\nsolow\n\n\n\nNhững ghi chép từ Đại suy thoái và Harrod-Domar đến trạng thái dừng, hội tụ và quy tắc vàng.\n\n\n\nNov 21, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/hello-quarto/index.html",
+    "href": "posts/hello-quarto/index.html",
+    "title": "Hello Quarto",
+    "section": "",
+    "text": "This vault publishes investment essays with Quarto instead of Substack. Memos, alphas, and full reports stay in the repo; only posts/ go on the site.\nmake new-post NAME=your-slug\nmake preview\nmake publish\nSee docs/quarto.md."
   }
 ]
