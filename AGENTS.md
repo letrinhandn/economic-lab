@@ -5,10 +5,11 @@ Read this first. This repo is a knowledge vault for economic theory, published v
 ## Mental model
 
 ```
-POSTS (Quarto)                 NOTEBOOKS / PAPERS / MODELS
-posts/<slug>/
-  index.qmd
+POSTS (Quarto)                 BUNDLES                 NOTEBOOKS / PAPERS / MODELS
+posts/<slug>/                  bundles/<slug>.zip
+  index.qmd                      (qmd + figures + scripts + config)
   figures/
+  scripts/
   config.yaml
 ```
 
@@ -23,6 +24,8 @@ make list
 make new-post NAME=harrod-domar DOMAIN=growth
 make preview
 make render
+make zip NAME=<slug>
+make zip-all
 make publish
 ```
 
@@ -32,6 +35,8 @@ make publish
 |------|---------|----------|
 | `posts/<slug>/` | Quarto essay | `config.yaml`, `index.qmd` |
 | `posts/<slug>/figures/` | Essay figures | optional |
+| `posts/<slug>/scripts/` | Regen / helper code | optional |
+| `bundles/<slug>.zip` | Complete downloadable pack | regenerate via `make zip` |
 | `notebooks/<slug>/` | Theory notebooks | `config.yaml` |
 | `papers/<slug>/` | Academic paper | `config.yaml` |
 | `models/<slug>/` | Model card | `config.yaml` |

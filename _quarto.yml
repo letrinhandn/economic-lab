@@ -8,7 +8,7 @@ project:
 
 website:
   title: "Economic Lab"
-  description: "Personal essays, projects, and works in economics by Le Tri Nhan"
+  description: "Economics, investment research, and quantitative theory essays by Le Tri Nhan"
   site-url: https://letrinhandn.github.io/economic-lab
   repo-url: https://github.com/letrinhandn/economic-lab
   favicon: styles/favicon.svg
@@ -24,10 +24,10 @@ website:
       - text: Economics
         href: https://letrinhandn.github.io/economic-lab/
     right:
-      - text: Quant
-        href: https://letrinhandn.github.io/quant-theory-lab/
-      - text: Finance
-        href: https://letrinhandn.github.io/investment-research-lab/
+      - text: Policy
+        href: https://letrinhandn.github.io/policy-lab/
+      - text: Philosophy
+        href: https://letrinhandn.github.io/philosophy-lab/
   search: false
   draft-mode: gone
 
@@ -46,7 +46,9 @@ format:
     mainfont: "Be Vietnam Pro"
     respect-user-color-scheme: false
     include-in-header: styles/theme-boot.html
-    include-after-body: styles/nav-home.html
+    include-after-body:
+      - styles/nav-home.html
+      - styles/market-ticker.html
 
 execute:
   freeze: auto

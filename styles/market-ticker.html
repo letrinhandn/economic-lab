@@ -1,0 +1,406 @@
+<style>
+  :root {
+    /* Must match .navbar height in quarto.scss (logo + pad*2 + cream border) */
+    --lab-navbar-h: calc(40px + 0.55rem * 2 + 3px);
+    --lab-ticker-h: 2.45rem;
+  }
+
+  @media (max-width: 991.98px) {
+    :root {
+      --lab-navbar-h: calc(36px + 0.45rem * 2 + 3px);
+    }
+  }
+
+  /* Lives inside #quarto-header so Headroom hide/show moves navbar + ticker together */
+  .lab-market-ticker {
+    --ticker-bg: #2a050a;
+    --ticker-fg: #d9cab3;
+    --ticker-muted: rgba(217, 202, 179, 0.58);
+    --ticker-accent: #bc8034;
+    --ticker-up: #7dcea0;
+    --ticker-down: #e08a8a;
+    --ticker-card: #3a070e;
+    --ticker-line: rgba(217, 202, 179, 0.22);
+
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    z-index: 1;
+    width: 100%;
+    height: var(--lab-ticker-h);
+    overflow: hidden;
+    background: var(--ticker-bg);
+    border-top: 0;
+    border-bottom: 1px solid var(--ticker-line);
+    color: var(--ticker-fg);
+  }
+
+  #quarto-header {
+    /* Allow ticker to sit under navbar inside the same fixed/headroom shell */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Drawer open → hide ticker (hub-synced left drawer) */
+  body.lab-drawer-open .lab-market-ticker {
+    display: none !important;
+    height: 0 !important;
+    border: 0 !important;
+  }
+
+  html[data-theme="light"] .lab-market-ticker {
+    --ticker-bg: #efe6e1;
+    --ticker-fg: #5e0b15;
+    --ticker-muted: rgba(94, 11, 21, 0.55);
+    --ticker-accent: #90323d;
+    --ticker-up: #1f7a4d;
+    --ticker-down: #a33b3b;
+    --ticker-card: #fffdfb;
+    --ticker-line: rgba(94, 11, 21, 0.14);
+  }
+
+  .lab-ticker-viewport {
+    height: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, #000 1.5%, #000 98.5%, transparent);
+  }
+
+  .lab-ticker-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    height: 100%;
+    gap: 0.5rem;
+    padding: 0 0.65rem;
+    will-change: transform;
+    animation: lab-ticker-x 70s linear infinite;
+  }
+
+  .lab-market-ticker:hover .lab-ticker-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes lab-ticker-x {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  .lab-ticker-card {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    column-gap: 0.8rem;
+    row-gap: 0.04rem;
+    align-items: baseline;
+    min-width: 9.4rem;
+    padding: 0.26rem 0.65rem;
+    background: var(--ticker-card);
+    border: 1px solid var(--ticker-line);
+    border-radius: 0;
+    font-family: ui-monospace, "SF Mono", "IBM Plex Mono", Menlo, monospace;
+    font-size: 0.68rem;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .lab-ticker-sym {
+    grid-column: 1;
+    grid-row: 1;
+    color: var(--ticker-fg);
+    font-weight: 650;
+    letter-spacing: 0.03em;
+  }
+
+  .lab-ticker-px {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    color: var(--ticker-accent);
+    font-weight: 700;
+  }
+
+  .lab-ticker-from {
+    grid-column: 1;
+    grid-row: 2;
+    color: var(--ticker-muted);
+    font-size: 0.6rem;
+  }
+
+  .lab-ticker-chg {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+    font-size: 0.6rem;
+    font-weight: 650;
+  }
+
+  .lab-ticker-chg.up { color: var(--ticker-up); }
+  .lab-ticker-chg.down { color: var(--ticker-down); }
+  .lab-ticker-chg.flat { color: var(--ticker-muted); }
+
+  .lab-ticker-status {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 0.9rem;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.7rem;
+    color: var(--ticker-muted);
+  }
+
+  /* Content clears real navbar + ticker (not the oversized lab-header-offset alone) */
+  body.nav-fixed {
+    padding-top: calc(var(--lab-navbar-h) + var(--lab-ticker-h)) !important;
+  }
+
+  .sidebar.margin-sidebar,
+  .sidebar.toc-left,
+  #quarto-margin-sidebar.sidebar.margin-sidebar,
+  #quarto-margin-sidebar {
+    top: calc(var(--lab-navbar-h) + var(--lab-ticker-h)) !important;
+    max-height: calc(100vh - var(--lab-navbar-h) - var(--lab-ticker-h) - 1.25rem) !important;
+  }
+
+  #quarto-margin-sidebar .quarto-listing-category-title,
+  #quarto-margin-sidebar #toc-title,
+  #quarto-margin-sidebar nav[role="doc-toc"] > h2 {
+    scroll-margin-top: calc(var(--lab-navbar-h) + var(--lab-ticker-h) + 0.75rem);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lab-ticker-track {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+(function () {
+  /* Mix: crypto + gold + equity ETFs (Binance stock tokens) + FX */
+  var BINANCE = [
+    { symbol: "BTCUSDT", label: "BTC", source: "Binance", digits: 2, prefix: "$" },
+    { symbol: "ETHUSDT", label: "ETH", source: "Binance", digits: 2, prefix: "$" },
+    { symbol: "SOLUSDT", label: "SOL", source: "Binance", digits: 2, prefix: "$" },
+    { symbol: "PAXGUSDT", label: "GOLD", source: "PAXG", digits: 2, prefix: "$" },
+    { symbol: "SPYBUSDT", label: "SPY", source: "Binance", digits: 2, prefix: "$" },
+    { symbol: "QQQBUSDT", label: "QQQ", source: "Binance", digits: 2, prefix: "$" },
+  ];
+
+  var FX_TO = ["EUR", "JPY", "GBP", "CNY"];
+
+  function syncNavbarHeight() {
+    // Measure navbar only — ticker is a sibling inside #quarto-header
+    var nav = document.querySelector("#quarto-header .navbar");
+    if (!nav) return;
+    var h = Math.ceil(nav.getBoundingClientRect().height);
+    if (h > 0) {
+      document.documentElement.style.setProperty("--lab-navbar-h", h + "px");
+    }
+  }
+
+  function fmt(n, d) {
+    if (!isFinite(n)) return "—";
+    return Number(n).toLocaleString("en-US", {
+      minimumFractionDigits: d,
+      maximumFractionDigits: d,
+    });
+  }
+
+  function cardHtml(row) {
+    var chg = Number(row.chg);
+    var cls = chg > 0.005 ? "up" : chg < -0.005 ? "down" : "flat";
+    var sign = chg > 0 ? "+" : "";
+    var px = (row.prefix || "") + fmt(row.price, row.digits);
+    return (
+      '<article class="lab-ticker-card">' +
+      '<span class="lab-ticker-sym">' + row.label + "</span>" +
+      '<span class="lab-ticker-px">' + px + "</span>" +
+      '<span class="lab-ticker-from">From ' + row.source + "</span>" +
+      '<span class="lab-ticker-chg ' + cls + '">' + sign + fmt(chg, 2) + "%</span>" +
+      "</article>"
+    );
+  }
+
+  function render(bar, rows) {
+    var viewport = bar.querySelector(".lab-ticker-viewport");
+    if (!viewport) return;
+    var html = rows.map(cardHtml).join("");
+    viewport.innerHTML =
+      '<div class="lab-ticker-track">' + html + html + "</div>";
+  }
+
+  function pctChg(now, prev) {
+    if (!isFinite(now) || !isFinite(prev) || prev === 0) return 0;
+    return ((now - prev) / prev) * 100;
+  }
+
+  function isoDaysAgo(n) {
+    var d = new Date();
+    d.setUTCDate(d.getUTCDate() - n);
+    return d.toISOString().slice(0, 10);
+  }
+
+  function buildFxRows(latest, prior) {
+    if (!latest || !latest.rates) return [];
+    var lr = latest.rates;
+    var pr = (prior && prior.rates) || {};
+    var rows = [];
+
+    // Quote as conventional pairs
+    if (lr.EUR) {
+      var eurNow = 1 / lr.EUR;
+      var eurPrev = pr.EUR ? 1 / pr.EUR : NaN;
+      rows.push({
+        label: "EUR/USD",
+        price: eurNow,
+        chg: pctChg(eurNow, eurPrev),
+        source: "ECB",
+        digits: 4,
+        prefix: "",
+      });
+    }
+    if (lr.GBP) {
+      var gbpNow = 1 / lr.GBP;
+      var gbpPrev = pr.GBP ? 1 / pr.GBP : NaN;
+      rows.push({
+        label: "GBP/USD",
+        price: gbpNow,
+        chg: pctChg(gbpNow, gbpPrev),
+        source: "ECB",
+        digits: 4,
+        prefix: "",
+      });
+    }
+    if (lr.JPY) {
+      rows.push({
+        label: "USD/JPY",
+        price: lr.JPY,
+        chg: pctChg(lr.JPY, pr.JPY),
+        source: "ECB",
+        digits: 2,
+        prefix: "",
+      });
+    }
+    if (lr.CNY) {
+      rows.push({
+        label: "USD/CNY",
+        price: lr.CNY,
+        chg: pctChg(lr.CNY, pr.CNY),
+        source: "ECB",
+        digits: 3,
+        prefix: "",
+      });
+    }
+    return rows;
+  }
+
+  function fetchFxPair() {
+    var to = FX_TO.join(",");
+    var latestUrl =
+      "https://api.frankfurter.app/latest?from=USD&to=" + to;
+    // ~1 trading day back; fall back further if weekend/holiday
+    var priorUrl =
+      "https://api.frankfurter.app/" + isoDaysAgo(1) + "?from=USD&to=" + to;
+
+    return Promise.all([
+      fetch(latestUrl).then(function (r) { return r.json(); }),
+      fetch(priorUrl)
+        .then(function (r) {
+          if (!r.ok) throw new Error("prior");
+          return r.json();
+        })
+        .catch(function () {
+          return fetch(
+            "https://api.frankfurter.app/" + isoDaysAgo(3) + "?from=USD&to=" + to
+          ).then(function (r) { return r.json(); });
+        }),
+    ])
+      .then(function (pair) {
+        return buildFxRows(pair[0], pair[1]);
+      })
+      .catch(function () {
+        return [];
+      });
+  }
+
+  function mount() {
+    if (document.getElementById("lab-market-ticker")) return;
+
+    var bar = document.createElement("div");
+    bar.id = "lab-market-ticker";
+    bar.className = "lab-market-ticker";
+    bar.setAttribute("aria-label", "Live market ticker");
+    bar.innerHTML =
+      '<div class="lab-ticker-status">Loading markets…</div>' +
+      '<div class="lab-ticker-viewport" hidden></div>';
+
+    var header = document.getElementById("quarto-header");
+    if (header) {
+      // Inside header → Headroom translateY(-100%) hides navbar + ticker together
+      header.appendChild(bar);
+    } else {
+      document.body.insertBefore(bar, document.body.firstChild);
+    }
+
+    syncNavbarHeight();
+    window.addEventListener("resize", syncNavbarHeight);
+    requestAnimationFrame(syncNavbarHeight);
+    setTimeout(syncNavbarHeight, 120);
+    // Headroom may have sized header before ticker mounted — nudge a reflow
+    setTimeout(function () {
+      syncNavbarHeight();
+      window.dispatchEvent(new Event("resize"));
+    }, 280);
+
+    var binanceUrl =
+      "https://api.binance.com/api/v3/ticker/24hr?symbols=" +
+      encodeURIComponent(JSON.stringify(BINANCE.map(function (p) { return p.symbol; })));
+
+    Promise.all([
+      fetch(binanceUrl).then(function (r) { return r.json(); }),
+      fetchFxPair(),
+    ])
+      .then(function (out) {
+        var tickers = out[0];
+        var fxRows = out[1] || [];
+        if (!Array.isArray(tickers)) throw new Error("bad binance payload");
+
+        var bySym = {};
+        tickers.forEach(function (t) { bySym[t.symbol] = t; });
+
+        var rows = BINANCE.map(function (p) {
+          var t = bySym[p.symbol] || {};
+          return {
+            label: p.label,
+            price: Number(t.lastPrice),
+            chg: Number(t.priceChangePercent),
+            source: p.source,
+            digits: p.digits,
+            prefix: p.prefix,
+          };
+        }).filter(function (r) { return isFinite(r.price); });
+
+        rows = rows.concat(fxRows);
+        if (!rows.length) throw new Error("empty");
+
+        bar.querySelector(".lab-ticker-status").hidden = true;
+        var viewport = bar.querySelector(".lab-ticker-viewport");
+        viewport.hidden = false;
+        render(bar, rows);
+        syncNavbarHeight();
+      })
+      .catch(function () {
+        bar.querySelector(".lab-ticker-status").textContent =
+          "Market data unavailable";
+      });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", mount);
+  } else {
+    mount();
+  }
+})();
+</script>

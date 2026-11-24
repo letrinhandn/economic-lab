@@ -2,10 +2,10 @@
 title: "About"
 ---
 
-Economic Lab collects personal essays, projects, and works in economics by Le Tri Nhan.
+Economic Lab collects personal essays, projects, and works in economics by Le Tri Nhan — including investment research and quantitative theory formerly kept in Finance / Investment Research Lab.
 
 Root hub: [personal site](https://letrinhandn.github.io/letrinhan-site/).
 
-- [Quant Theory Lab](https://letrinhandn.github.io/quant-theory-lab/)
-- [Investment Research Lab](https://letrinhandn.github.io/investment-research-lab/)
-- X: [@comrade_lenhan](https://x.com/comrade_lenhan)
+- [Tech Lab](https://letrinhandn.github.io/tech-lab/)
+- [Policy Lab](https://letrinhandn.github.io/policy-lab/)
+- [Philosophy Lab](https://letrinhandn.github.io/philosophy-lab/)

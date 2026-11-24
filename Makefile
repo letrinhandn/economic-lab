@@ -1,7 +1,7 @@
 .PHONY: help setup sync doctor list \
         new-notebook new-paper new-post new-project new-data new-dataset new-model \
         preview render publish quarto-doctor \
-        lint test
+        figures zip zip-all lint test
 
 REPO := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 EL := cd $(REPO) && uv run --python 3.12 python -m el_lab.cli
@@ -21,6 +21,9 @@ help:
 	@echo "  make new-paper NAME=x      Academic paper"
 	@echo "  make preview               Quarto live preview"
 	@echo "  make render                Build Quarto site to _site/"
+	@echo "  make figures               Regenerate Solow–Swan essay figures"
+	@echo "  make zip NAME=slug         Bundle post → bundles/<slug>.zip"
+	@echo "  make zip-all               Bundle every Quarto post"
 	@echo "  make publish               Publish to GitHub Pages"
 	@echo "  make quarto-doctor         Quarto install check"
 
@@ -70,6 +73,16 @@ preview:
 
 render:
 	cd $(REPO) && $(QUARTO) render
+
+figures:
+	cd $(REPO) && uv run --python 3.12 python posts/solow-swan-tang-truong/scripts/generate_figures.py
+
+zip:
+	@test -n "$(NAME)" || (echo "NAME= required (post slug)" && exit 1)
+	cd $(REPO) && uv run --python 3.12 python scripts/bundle_post.py $(NAME)
+
+zip-all:
+	cd $(REPO) && uv run --python 3.12 python scripts/bundle_post.py --all
 
 publish:
 	cd $(REPO) && $(QUARTO) publish gh-pages --no-prompt
